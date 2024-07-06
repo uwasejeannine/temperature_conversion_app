@@ -10,6 +10,9 @@ class TemperatureConversionApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        appBarTheme: AppBarTheme(
+          foregroundColor: Colors.white,
+        ),
       ),
       home: TemperatureConversionHomePage(),
     );
@@ -53,6 +56,7 @@ class _TemperatureConversionHomePageState
     return Scaffold(
       appBar: AppBar(
         title: Text('Temperature Conversion App'),
+        backgroundColor: Colors.blue,
       ),
       body: Container(
         color: Colors.white,
@@ -111,25 +115,22 @@ class _TemperatureConversionHomePageState
               ),
             ),
             SizedBox(height: 20),
-            Text(
-              'Result: $_result',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 20),
             Expanded(
-              child: ListView.builder(
-                itemCount: _history.length,
-                itemBuilder: (context, index) {
-                  return Card(
-                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    child: ListTile(
-                      title: Text(
-                        _history[index],
-                        style: TextStyle(fontSize: 16),
+              child: Container(
+                child: ListView.builder(
+                  itemCount: _history.length,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                      child: ListTile(
+                        title: Text(
+                          _history[index],
+                          style: TextStyle(fontSize: 16),
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
             ),
           ],
